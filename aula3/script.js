@@ -1,0 +1,2 @@
+// Método
+console.log();
