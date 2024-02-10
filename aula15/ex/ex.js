@@ -9,4 +9,3 @@ texto.innerHTML += `<p>É NaN: ${Number.isNaN(num1)}</p>`
 texto.innerHTML += `<p>Arredondado para baixo: ${Math.floor(num1)}</p>`
 texto.innerHTML += `<p>Arredondado para cima: ${Math.ceil(num1)}</p>`
 texto.innerHTML += `<p>Com duas casa decimais: ${num1.toFixed(2)}</p>`
-
