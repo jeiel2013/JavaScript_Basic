@@ -60,7 +60,7 @@ function meuEscopo() {
             case 7:
                 mesTexto = 'Agosto';
                 return mesTexto;
-            case 7:
+            case 8:
                 mesTexto = 'Setembro';
                 return mesTexto;
             case 9:
