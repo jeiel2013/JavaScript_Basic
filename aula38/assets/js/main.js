@@ -8,5 +8,5 @@ const backgroundColorBody = estilosBody.backgroundColor;
 for (let p of ps) {
     p.style.backgroundColor = backgroundColorBody;
     p.style.color = "#FFFF";
-    p.style.borderRadius = "3px"
+    p.style.borderRadius = "3px";
 }

@@ -1,5 +1,5 @@
 const nome = "Jeiel Jedson"
-const sobrenome = " Ales"
+const sobrenome = " Alves"
 const idade = 18
 const peso = 70
 const altura = 1.63
