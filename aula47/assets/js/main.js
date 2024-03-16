@@ -1,29 +1,64 @@
-const relogio = document.querySelector(".relogio");
-const inciar = document.querySelector(".iniciar");
-const pausar = document.querySelector(".pausar");
-const zerar = document.querySelector(".zerar");
+function relogio() {
+    function getTimeFromSeconds(segundos) {
+        const data = new Date(segundos * 1000);
+        return data.toLocaleTimeString('pt-BR', {
+            hour12: false,
+            timeZone: 'GMT'
+        })
+    }
 
-function mostraHora() {
-    let data = new Date();
+    const relogio = document.querySelector(".relogio");
+    // const inciar = document.querySelector(".iniciar");
+    // const pausar = document.querySelector(".pausar");
+    // const zerar = document.querySelector(".zerar");
 
-    return data.toLocaleTimeString('pt-BR', {
-        hour12: false
+    let segundos = 0;
+    let timer;
+
+    function iniciaRelogio() {
+        timer = setInterval(function () {
+            segundos++;
+            relogio.innerHTML = getTimeFromSeconds(segundos);
+        }, 1000)
+    }
+
+    document.addEventListener('click', function (e) {
+        const el = e.target;
+
+        if (el.classList.contains('zerar')) {
+            clearInterval(timer);
+            relogio.innerHTML = '00:00:00';
+            relogio.classList.remove('pausado');
+            segundos = 0;
+        }
+
+        if (el.classList.contains('iniciar')) {
+            relogio.classList.remove('pausado');
+            clearInterval(timer);
+            iniciaRelogio();
+        }
+
+        if (el.classList.contains('pausar')) {
+            clearInterval(timer);
+            relogio.classList.add('pausado');
+        }
     });
 
+    // inciar.addEventListener('click', function (event) {
+    //     relogio.classList.remove('pausado');
+    //     clearInterval(timer);
+    //     iniciaRelogio();
+    // });
 
+    // pausar.addEventListener('click', function (event) {
+    //     clearInterval(timer);
+    //     relogio.classList.add('pausado');
+    // });
+
+    // zerar.addEventListener('click', function (event) {
+    //     clearInterval(timer);
+    //     relogio.innerHTML = '00:00:00';
+    //     segundos = 0;
+    // });
 }
-
-
-inciar.addEventListener('click', function(event) {
-    relogio.innerHTML += mostraHora();
-    setInterval(function () { console.log(mostraHora()); }, 1000);
-    alert('Cliquei no pausar.');
-});
-
-pausar.addEventListener('click', function(event) {
-    alert('Cliquei no pausar.');
-});
-
-zerar.addEventListener('click', function(event) {
-    alert('Cliquei no zerar.');
-});
+relogio();
